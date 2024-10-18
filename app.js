@@ -7,13 +7,6 @@ const bot = new TelegramBot(token, { polling: true });
 const imageURL = 'https://i.ibb.co/XDPzBWc/pngtree-virtual-panel-generate-ai-image-15868619.jpg';
 const adminIds = [5430259245, 7019407723];
 
-bot.use((msg, next) => {
-    if (!adminIds.includes(msg.from.id)) {
-        return;
-    }
-    next();
-});
-
 bot.on('message', (msg) => {
     const chatId = msg.chat.id;
     const firstName = msg.from.first_name;
@@ -40,6 +33,10 @@ bot.on('message', (msg) => {
 
 bot.onText(/\/update/, (msg) => {
     const chatId = msg.chat.id;
+
+    if (!adminIds.includes(msg.from.id)) {
+        return;
+    }
 
     exec('git pull', (error, stdout, stderr) => {
         if (error) {
