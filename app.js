@@ -19,7 +19,7 @@ bot.on('message', (msg) => {
     caption: messageText,
     reply_markup: {
       inline_keyboard: [
-        [{ text: 'Play Now !', web_app: { url: 'http://mtx-ai-bot.vercel.app' } }],
+        [{ text: 'Play Now !', web_app: { url: 'https://mtx-ai-bot.vercel.app' } }],
         [{ text: 'Join Community', url: 'https://telegram.me/MatrixAi_Ann' }]
       ]
     }
